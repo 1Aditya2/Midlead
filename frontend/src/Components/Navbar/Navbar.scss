@@ -1,0 +1,39 @@
+.navbar {
+  height: 70px;
+  background-color: #212121;
+  color: whitesmoke;
+  font-size: 1.91rem;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  .nav-cont {
+    width: 80%;
+    // border: 1px solid red;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      // border: 1px solid red;
+
+      text-transform: uppercase;
+    }
+    .cart-icon {
+      position: relative;
+  
+      cursor: pointer;
+      // border: 1px solid red;
+      .cart-count {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: -4px;
+        right: -2px;
+        background-color: blue;
+        color: white;
+        font-size: 0.6rem;
+        border-radius: 20px;
+      }
+    }
+  }
+}

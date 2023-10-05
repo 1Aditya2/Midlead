@@ -1,0 +1,100 @@
+.products {
+  margin-top: 60px;
+  z-index: 9;
+  .prod-cont {
+    width: 100%;
+    // border: 1px solid red;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    .prod-item {
+      width: 300px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      // height: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden;
+      // border: 1px solid red;
+      .prod-image {
+        // border: 1px solid red;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .image{
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(0.98);
+            
+            
+          }
+        }
+        .overlay{
+          position: absolute;
+          top: 0;
+          background-color: rgba($color: #000000, $alpha: 0.5);
+          // background-color: blue;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;align-items: center;
+          transition: 0.5s;
+            .addtocart {
+              cursor: pointer;
+              background-color: #8800c7;
+            
+            }
+            .addtocart:hover {
+              background-color: #921bc9;
+            }
+            .addtocart:active {
+              background-color: #983dc2;
+            }
+            .added{
+           
+              background-color: rgb(80, 134, 1);
+            
+            }
+        }
+        &:hover{
+          
+          .overlay{
+            opacity: 1;
+          }
+        }
+        
+      }
+      .prod-info {
+        // border: 1px solid red;
+        // width: 100%;
+        // height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px;
+        font-size: 1.2rem;
+
+        .name {
+          color: gray;
+          // border: 1px solid red;
+          // text-align: left;
+          text-align: center;
+          font-weight: 200;
+        }
+        .price{
+          // border: 1px solid red;
+        }
+
+  
+      }
+    }
+  }
+}
