@@ -5,7 +5,7 @@ import Products from "./Components/Products/Products";
 import toast,{Toaster} from 'react-hot-toast'
 import LoadingBar from 'react-top-loading-bar'
 import { useSelector } from "react-redux";
-import CreateProduct from "./Components/CreateProduct";
+import Footer from "./Components/Footer/Footer";
 function App() {
   const isLoading=useSelector(state=>state.productSliceReducer.isLoading)//subscribing to some variables declared in store
   const toastData=useSelector(state=>state.productSliceReducer.toastData)
@@ -36,11 +36,12 @@ function App() {
       <Navbar/>
       <Hero/>
       <Products/>
-      {/* <CreateProduct/> */}
+      <Footer/>
+     
     </div>
   );
 }
-
-export default App;
 export const TOAST_SUCCESS='toast_success'
 export const TOAST_FAILURE='toast_failure'
+export default App;
+

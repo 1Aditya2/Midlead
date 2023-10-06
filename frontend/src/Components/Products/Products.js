@@ -12,6 +12,7 @@ function Products() {
   }, []);
   return (
     <div className="products center">
+      <div className="heading">Our Top Products,Exclusively for You!</div>
       <div className="prod-cont">
         {allProducts?.map((each) => {
           return (

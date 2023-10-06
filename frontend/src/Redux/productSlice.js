@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { TOAST_FAILURE } from "../App";
+import { TOAST_FAILURE, TOAST_SUCCESS } from "../App";
 export const getProducts = createAsyncThunk("poster/getProducts", async (body,thunkAPI) => {
   try {
     thunkAPI.dispatch(setLoading(true))//dispatching the loading bar
@@ -10,7 +10,7 @@ export const getProducts = createAsyncThunk("poster/getProducts", async (body,th
     
     return response.data.result;//returnig the result to builder 
   } catch (error) {
-    console.log(error,'response at error');
+    
     thunkAPI.dispatch(showToast({
         type:TOAST_FAILURE,
         message:'Sorry,cannot fetch posters'//if some error occurs in api call then data will not get fetched and this message will be displayed
@@ -186,6 +186,10 @@ const productSlice = createSlice({
         if (myProd == undefined) {
         } else {
           //fidnign the product in cart through findIndex method remving it from cart decreasing the totaltitems the products quantity and updating the product in cart and Products
+          state.toastData={
+            type:TOAST_SUCCESS,
+            message:'Item removed!'
+          }
           let index = state.Cart?.findIndex((prod) => prod._id === myProd._id);
           state.totalItems -= state.Cart[index].quantity;
           state.Cart.splice(index, 1);

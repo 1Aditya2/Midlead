@@ -12,25 +12,6 @@ const getProducts = async (req, res) => {
     return res.send(error(500, e.message));
   }
 };
-const postProduct = async (req, res) => {
-  //will save a product inside the database
-  const { name, price, image } = req.body;
-
-  const cloudImg = await cloudinary.uploader.upload(image, {
-    folder: "ProductImage",
-  });
-
-  const product = await Products.create({
-    name,
-    price,
-    image: {
-      publicId: cloudImg.public_id,
-      url: cloudImg.secure_url,
-    },
-  });
-
-  return res.send(success(200, product));
-};
 const removeFromCart = async (req, res) => {
   //decreases the quantity of product send from frontend
   try {
@@ -92,7 +73,6 @@ const removeCartItem = async (req, res) => {
 
 module.exports = {
   getProducts,
-  postProduct,
   removeFromCart,
   addToCart,
   getCart,
